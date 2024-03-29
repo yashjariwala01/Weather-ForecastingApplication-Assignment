@@ -229,7 +229,7 @@ function CurrentWeather({ location }) {
             {icon}
             <p className='text-xl'>{description}</p>
           </div>
-          <div className='flex gap-4'>
+          <div className='flex gap-4 ml-4'>
 
             <div className='bg-[rgba(0,0,0,0.3)] p-1 md:p-2 lg:p-3 rounded-md flex items-center gap-2'>
               <FaTemperatureHigh />

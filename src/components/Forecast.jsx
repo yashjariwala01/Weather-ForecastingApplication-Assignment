@@ -93,7 +93,7 @@ function Forecast({ location }) {
   return (
     <div className='m-4'>
       {forecastIntervals && (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4'>
           {forecastIntervals.slice(1).map((interval, index) => (
             <div className='transition-transform transform hover:scale-105 border-2 border-solid border-black p-5 rounded-xl shadow-2xl gap-2' key={index}>
               <div className='flex flex-col items-center gap-1'>

@@ -55,7 +55,7 @@ function App() {
   );
 }else{
   return (
-    <div className='flex flex-col justify-center items-center p-16 gap-5 bg-[linear-gradient(262deg,rgba(0,0,0,0.1),rgba(0,0,0,0.4))] rounded-lg'>
+    <div className='flex flex-col justify-center items-center p-16 gap-5 bg-[linear-gradient(262deg,rgba(0,0,0,0.1),rgba(0,0,0,0.4))] rounded-lg m-[50%]'>
     <img src={loader} className='w-[50%] rounded-2xl' />
     <div className='flex flex-col justify-center items-center'>
       <h3 className='text-white text-2xl font-semibold'>
