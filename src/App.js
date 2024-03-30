@@ -3,7 +3,7 @@ import './App.css';
 import CurrentWeather from './components/CurrentWeather';
 import Forecast from './components/Forecast';
 import SearchBar from './components/SearchBar';
-import loader from './images/weather.gif'
+
 
 function App() {
   const [currentLocation, setCurrentLocation] = useState('');
@@ -32,44 +32,39 @@ function App() {
     if (currentLocation === '') {
       fetchLocation();
     }
-  }, [currentLocation]);
+  }, []);
 
   const handleSearch = (location) => {
     setCurrentLocation(location);
   };
 
-  if(currentLocation){
+  if (currentLocation) {
     return (
       <div className='app'>
-      <div className="container">
-        <h1 className='mb-6 text-lg font-extrabold'>Weather App</h1>
-      <SearchBar onSearch={handleSearch} />
-      <div className="weather-card">
-        <CurrentWeather location={currentLocation} />
+        <div className="container">
+          <h1 className='mb-6 text-lg font-extrabold'>Weather App</h1>
+          <SearchBar onSearch={handleSearch} />
+          <div className="weather-card">
+            <CurrentWeather location={currentLocation} />
+          </div>
+          <div className="weather-card">
+            <Forecast location={currentLocation} />
+          </div>
+        </div>
       </div>
-      <div className="weather-card">
-        <Forecast location={currentLocation} />
+    );
+  } else {
+    return (
+      <div className='flex flex-col justify-center items-center p-16 gap-5 '>
+        <div className='loader'></div>
+        <div className='flex justify-center items-center'>
+          <h3 className='text-white text-2xl font-semibold'>
+            Detecting your location
+          </h3>
+        </div>
       </div>
-    </div>
-  </div>
-  );
-}else{
-  return (
-    <div className='flex flex-col justify-center items-center p-16 gap-5 bg-[linear-gradient(262deg,rgba(0,0,0,0.1),rgba(0,0,0,0.4))] rounded-lg m-[50%]'>
-    <img src={loader} className='w-[50%] rounded-2xl' />
-    <div className='flex flex-col justify-center items-center'>
-      <h3 className='text-white text-2xl font-semibold'>
-          Detecting your location 
-      </h3>
-      <h5 className='text-white font-semibold'>'allow location access'</h5>
-        <h3 className='text-white mt-3'>
-          Your city Weather wil be displayed on the App <br></br> & used
-          for calculating Real time weather.
-        </h3>
-    </div>
-  </div>
-  )
-}
+    );
+  }
 }
 
 export default App;
